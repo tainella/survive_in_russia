@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public GameObject health_manager;
 
     private Vector3 moveDirection = Vector3.zero;
-    public float speed = 1.0F;
+    public float speed = 0.01F;
 
     // Start is called before the first frame update
     void Start()
