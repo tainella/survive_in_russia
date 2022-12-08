@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2a6d343849004f8e8f316cebcf5bbc4, type: 3}
-  m_Name: Books
+  m_Name: Boots
   m_EditorClassIdentifier: 
-  id: 0
-  icon: {fileID: 5207457626644213826, guid: aa211800dbf464f87aa091ff5d3e9c11, type: 3}
+  id: 1
+  icon: {fileID: 5573409416003423563, guid: 3fc76d6ffbe95463ea28d13a4db77e2c, type: 3}
