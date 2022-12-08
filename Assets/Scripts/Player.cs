@@ -9,17 +9,19 @@ public class Player : MonoBehaviour
     public GameObject health_manager;
 
     private Vector3 moveDirection = Vector3.zero;
-    public float speed = 0.01F;
+    public float speed = 0.001F;
+    public float sensitivity = 3f;
 
     // Start is called before the first frame update
     void Start()
     {
-        controller = gameObject.GetComponent<CharacterController>();
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //перемещение
         if (Input.GetKeyDown("s"))
         {
             if (Input.GetKeyDown("a"))
@@ -69,5 +71,15 @@ public class Player : MonoBehaviour
             moveDirection *= speed;
             controller.Move(moveDirection);
         }
+
+        //вращение
+        var c = Camera.main.transform;
+        c.Rotate(0, Input.GetAxis("Mouse X") * sensitivity, 0);
+        c.Rotate(-Input.GetAxis("Mouse Y") * sensitivity, 0, 0);
+        var CharacterRotation = c.rotation;
+        CharacterRotation.x = 0;
+        CharacterRotation.z = 0;
+        transform.rotation = CharacterRotation;
+        
     }
 }

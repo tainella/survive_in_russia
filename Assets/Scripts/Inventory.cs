@@ -5,7 +5,6 @@ using UnityEngine;
 using System.Drawing;
 
 [System.Serializable]
-
 public class InventorySlot
 {
     public Item item;
