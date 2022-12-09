@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
@@ -16,27 +17,24 @@ public class CollectableItem : MonoBehaviour
     private bool treeHit = false;
     private Inventory inventory;
 
-    [SerializeField] private Item item;
+    [SerializeField] public Item item;
 
     private void OnTriggerEnter(Collider other)
     {
         uiUse.enabled = true;
-    }
+        treeHit = true;
 
-    private void OnTriggerStay(Collider other)
-    {
         if (other.tag == "Player")
         {
             treeHit = true;
-            print("Player");
-            inventory = other.GetComponent<Inventory>();
+            inventory = other.gameObject.GetComponent<Inventory>();
         }
-
     }
 
     private void OnTriggerExit(Collider other)
     {
         uiUse.enabled = false;
+        treeHit = false;
     }
 
     // Start is called before the first frame update
@@ -54,19 +52,12 @@ public class CollectableItem : MonoBehaviour
         item_pos.y += GetComponent<MeshRenderer>().bounds.size.y + 0.7f;
         uiUse.transform.position = item_pos;
 
-        if (treeHit && Input.GetKeyDown("e"))
+        if (treeHit && Input.GetKeyDown(KeyCode.E))
         {
             print("GetKeyDown");
 
-            if (inventory)
-            {
-                inventory.AddItems(item);
-                Destroy(gameObject);
-            }
-            else
-            {
-                print("No inventory");
-            }
+            inventory.AddItems(item);
+            Destroy(gameObject);
         }
     }
 }

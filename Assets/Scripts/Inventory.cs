@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
 using System.Drawing;
+using UnityEngine.EventSystems;
 
 [System.Serializable]
 public class InventorySlot

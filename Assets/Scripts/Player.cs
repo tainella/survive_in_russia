@@ -11,11 +11,13 @@ public class Player : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     public float speed = 0.001F;
     public float sensitivity = 3f;
+    public Inventory inventory;
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        inventory = gameObject.AddComponent<Inventory>();
     }
 
     // Update is called once per frame

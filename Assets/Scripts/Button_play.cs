@@ -11,12 +11,10 @@ public class Button_play : MonoBehaviour
 	void Start () {
 		Button btn = GetComponent<Button>();
 		btn.onClick.AddListener(TaskOnClick);
-		//Text t = GetComponentInChildren<Text>();
-		//t.material = 
 	}
 
 	void TaskOnClick(){
-		Debug.Log ("You have clicked the Play button!");
+		Debug.Log("You have clicked the Play button!");
 		SceneManager.LoadScene("Game");
 	}
 }
