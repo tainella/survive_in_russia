@@ -54,8 +54,7 @@ public class CollectableItem : MonoBehaviour
 
         if (treeHit && Input.GetKeyDown(KeyCode.E))
         {
-            print("GetKeyDown");
-
+            uiUse.enabled = false;
             inventory.AddItems(item);
             Destroy(gameObject);
         }

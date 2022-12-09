@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UI_Inventory : MonoBehaviour
 {
-    [SerializeField] private List<RawImage> icons = new List<RawImage>();
+    [SerializeField] public List<RawImage> icons = new List<RawImage>();
 
     public void UpdateUI (Inventory inventory)
     {

@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     private CharacterController controller;
     public GameObject health_manager;
+    public GameObject inventory_manager;
 
     private Vector3 moveDirection = Vector3.zero;
     public float speed = 0.001F;
@@ -18,6 +19,11 @@ public class Player : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         inventory = gameObject.AddComponent<Inventory>();
+    }
+
+    void UpdateInventory()
+    {
+        inventory_manager.UpdateUI(inventory);
     }
 
     // Update is called once per frame
