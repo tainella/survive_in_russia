@@ -11,7 +11,7 @@ public class CollectableItem : MonoBehaviour
 {
 
     public RawImage prefabUI;
-    private RawImage uiUse;
+    public RawImage uiUse;
     Camera cam;
     private Vector3 offset = new Vector3(0, 0.5f, 0);
     private bool treeHit = false;
@@ -21,11 +21,9 @@ public class CollectableItem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        uiUse.enabled = true;
-        treeHit = true;
-
         if (other.tag == "Player")
         {
+            uiUse.enabled = true;
             treeHit = true;
             inventory = other.gameObject.GetComponent<Inventory>();
         }
@@ -41,7 +39,7 @@ public class CollectableItem : MonoBehaviour
     void Start()
     {
         uiUse = Instantiate(prefabUI, FindObjectOfType<Canvas>().transform).GetComponent<RawImage>();
-        prefabUI.enabled = false; 
+        //prefabUI.enabled = false; 
         cam = Camera.main;
     }
 
@@ -49,9 +47,8 @@ public class CollectableItem : MonoBehaviour
     void Update()
     {
         Vector3 item_pos = transform.position;
-        item_pos.y += GetComponent<MeshRenderer>().bounds.size.y + 0.7f;
-        uiUse.transform.position = item_pos;
-
+        item_pos.y += GetComponent<MeshRenderer>().bounds.size.y + 0.6f;
+        uiUse.transform.position = Camera.main.WorldToScreenPoint(item_pos);
         if (treeHit && Input.GetKeyDown(KeyCode.E))
         {
             uiUse.enabled = false;
