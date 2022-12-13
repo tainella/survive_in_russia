@@ -31,6 +31,10 @@ public class Player : MonoBehaviour
     [Range(0.1f, 9f)][SerializeField] float sensitivity = 2f;
     [Tooltip("Limits vertical camera rotation. Prevents the flipping that happens when rotation goes above 90.")]
     [Range(0f, 90f)][SerializeField] float yRotationLimit = 88f;
+
+
+    public float movement_Speed;
+    public static float xMove, zMove;
     Camera c;
 
     void Start()
@@ -48,57 +52,39 @@ public class Player : MonoBehaviour
         }
     }
 
-    public static float ClampAngle(float angle, float min, float max)
+    void SimpleMovement()
     {
-        angle = angle % 360;
-        if ((angle >= -360F) && (angle <= 360F))
-        {
-            if (angle < -360F)
-            {
-                angle += 360F;
-            }
-            if (angle > 360F)
-            {
-                angle -= 360F;
-            }
-        }
-        return Mathf.Clamp(angle, min, max);
-    }
-
-    void Update()
-    {
-        //перемещение
         if (Input.GetKeyDown("s"))
         {
             if (Input.GetKeyDown("a"))
             {
-                moveDirection = new Vector3(-1, 0, -1);
+                moveDirection = -transform.forward - transform.right;
             }
             else if (Input.GetKeyDown("d"))
             {
-                moveDirection = new Vector3(1, 0, -1);
+                moveDirection = -transform.forward + transform.right;
             }
             else
             {
-                moveDirection = new Vector3(0, 0, -1);
+                moveDirection = -transform.forward;
             }
-             moveDirection *= speed;
-             controller.Move(moveDirection);
+            moveDirection *= speed;
+            controller.Move(moveDirection);
         }
 
         if (Input.GetKeyDown("w"))
         {
             if (Input.GetKeyDown("a"))
             {
-                moveDirection = new Vector3(-1, 0, 1);
+                moveDirection = transform.forward - transform.right;
             }
             else if (Input.GetKeyDown("d"))
             {
-                moveDirection = new Vector3(1, 0, 1);
+                moveDirection = transform.forward + transform.right;
             }
             else
             {
-                moveDirection = new Vector3(0, 0, 1);
+                moveDirection = transform.forward;
             }
             moveDirection *= speed;
             controller.Move(moveDirection);
@@ -106,27 +92,21 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown("a"))
         {
-            moveDirection = Vector3.left;
+            moveDirection = -transform.right;
             moveDirection *= speed;
             controller.Move(moveDirection);
         }
 
         if (Input.GetKeyDown("d"))
         {
-            moveDirection = Vector3.right;
+            moveDirection = transform.right;
             moveDirection *= speed;
             controller.Move(moveDirection);
         }
+    }
 
-        /*
-        //вращение
-        c.Rotate(0, Input.GetAxis("Mouse X") * sensitivity, 0);
-        c.Rotate(-Input.GetAxis("Mouse Y") * sensitivity, 0, 0);
-        var CharacterRotation = c.rotation;
-        CharacterRotation.y = 0;
-        transform.rotation = CharacterRotation;
-        */
-
+    void Rotate()
+    {
         rotation.x += Input.GetAxis(xAxis) * sensitivity;
         rotation.y += Input.GetAxis(yAxis) * sensitivity;
         rotation.y = Mathf.Clamp(rotation.y, -yRotationLimit, yRotationLimit);
@@ -136,12 +116,21 @@ public class Player : MonoBehaviour
         transform.localRotation = xQuat * yQuat;
 
         c.transform.rotation = transform.rotation;
+    }
 
+
+    void Update()
+    {
+        //перемещение
+        SimpleMovement();
+        Rotate();
+        
 
         for (int i = 0; i < inventory.GetSize(); i++)
         {
             icons[i].texture = inventory.GetItem(i).icon.texture;
             icons[i].enabled = true;
         }
+        
     }
 }
