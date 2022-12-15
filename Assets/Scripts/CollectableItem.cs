@@ -38,7 +38,7 @@ public class CollectableItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        uiUse = Instantiate(prefabUI, FindObjectOfType<Canvas>().transform).GetComponent<RawImage>();
+        uiUse = Instantiate(prefabUI, FindObjectOfType<Canvas>().transform.Find("Inventory_panel").transform).GetComponent<RawImage>();
         //prefabUI.enabled = false; 
         cam = Camera.main;
     }

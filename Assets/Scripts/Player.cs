@@ -9,12 +9,10 @@ using static UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle;
 
 public class Player : MonoBehaviour
 {
-    private CharacterController controller;
     public GameObject health_manager;
 
-    private Vector3 moveDirection = Vector3.zero;
+    private Vector3 moveDirection;
     public float speed = 0.01F;
-    //public float sensitivity = 1f;
 
     public Inventory inventory;
     [SerializeField] public List<RawImage> icons = new List<RawImage>(new RawImage[4]);
@@ -32,14 +30,10 @@ public class Player : MonoBehaviour
     [Tooltip("Limits vertical camera rotation. Prevents the flipping that happens when rotation goes above 90.")]
     [Range(0f, 90f)][SerializeField] float yRotationLimit = 88f;
 
-
-    public float movement_Speed;
-    public static float xMove, zMove;
     Camera c;
 
     void Start()
     {
-        controller = GetComponent<CharacterController>();
         inventory = gameObject.AddComponent<Inventory>();
         c = Camera.main;
     }
@@ -77,7 +71,6 @@ public class Player : MonoBehaviour
         }
 
         moveDirection *= speed * Time.deltaTime;
-        //controller.Move(moveDirection);
         transform.position += moveDirection;
     }
 
@@ -101,7 +94,6 @@ public class Player : MonoBehaviour
         SimpleMovement();
         Rotate();
         
-
         for (int i = 0; i < inventory.GetSize(); i++)
         {
             icons[i].texture = inventory.GetItem(i).icon.texture;
