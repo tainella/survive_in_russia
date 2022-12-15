@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public GameObject health_manager;
 
     private Vector3 moveDirection = Vector3.zero;
-    public float speed = 0.001F;
+    public float speed = 0.01F;
     //public float sensitivity = 1f;
 
     public Inventory inventory;
@@ -54,55 +54,31 @@ public class Player : MonoBehaviour
 
     void SimpleMovement()
     {
+        moveDirection = Vector3.zero;
         if (Input.GetKeyDown("s"))
         {
-            if (Input.GetKeyDown("a"))
-            {
-                moveDirection = -transform.forward - transform.right;
-            }
-            else if (Input.GetKeyDown("d"))
-            {
-                moveDirection = -transform.forward + transform.right;
-            }
-            else
-            {
-                moveDirection = -transform.forward;
-            }
-            moveDirection *= speed;
-            controller.Move(moveDirection);
+            moveDirection += -transform.forward;
+           
         }
 
         if (Input.GetKeyDown("w"))
         {
-            if (Input.GetKeyDown("a"))
-            {
-                moveDirection = transform.forward - transform.right;
-            }
-            else if (Input.GetKeyDown("d"))
-            {
-                moveDirection = transform.forward + transform.right;
-            }
-            else
-            {
-                moveDirection = transform.forward;
-            }
-            moveDirection *= speed;
-            controller.Move(moveDirection);
+            moveDirection += transform.forward;
         }
 
         if (Input.GetKeyDown("a"))
         {
-            moveDirection = -transform.right;
-            moveDirection *= speed;
-            controller.Move(moveDirection);
+            moveDirection += -transform.right;
         }
 
         if (Input.GetKeyDown("d"))
         {
-            moveDirection = transform.right;
-            moveDirection *= speed;
-            controller.Move(moveDirection);
+            moveDirection += transform.right;
         }
+
+        moveDirection *= speed * Time.deltaTime;
+        //controller.Move(moveDirection);
+        transform.position += moveDirection;
     }
 
     void Rotate()

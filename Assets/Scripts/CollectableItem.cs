@@ -11,7 +11,7 @@ public class CollectableItem : MonoBehaviour
 {
 
     public RawImage prefabUI;
-    public RawImage uiUse;
+    private RawImage uiUse;
     Camera cam;
     private Vector3 offset = new Vector3(0, 0.5f, 0);
     private bool treeHit = false;

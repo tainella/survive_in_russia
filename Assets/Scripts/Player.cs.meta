@@ -3,7 +3,10 @@ guid: fce1b3cc32ab84320b59489e940ab90c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - health_manager: {fileID: 6039639586338617563, guid: 21faf034d85a640a082f6ffdf83d84a2,
+      type: 3}
+  - inventory: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
