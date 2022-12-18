@@ -1,46 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using static UnityEngine.UIElements.UxmlAttributeDescription;
 
-[RequireComponent(typeof(SphereCollider))]
+[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(Rigidbody))]
 public class NPC : MonoBehaviour
-{
+{ 
     public int id;
+    private bool met_babka;
+    private bool met_mamka;
+    private bool met_gopnik;
+
+    public void Start()
+    {
+        /*
+        met_babka = ;
+        met_mamka = ;
+        met_gopnik = ;
+         */
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (id == 0) //гопник ж
+        if (id == 0 && (met_mamka == false)) //мама
         {
-            //SceneManager.LoadScene("NPC_0");
+            SceneManager.LoadScene("mamka");
         }
-        else if (id == 1) //гопник м
+        else if (id == 1 && (met_gopnik == false)) //гопник
         {
-            //SceneManager.LoadScene("NPC_1");
+            SceneManager.LoadScene("gopnik");
         }
-        else if (id == 2) //старушка 1
+        else if (id == 2 && (met_babka == false)) //старушка
         {
-            //SceneManager.LoadScene("NPC_2");
+            SceneManager.LoadScene("babka");
         }
-        else if (id == 3) //старушка 2
-        {
-            //SceneManager.LoadScene("NPC_3");
-        }
-        else if (id == 4) //птицы
-        {
-            //SceneManager.LoadScene("NPC_4");
-        }
-
     }
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 }

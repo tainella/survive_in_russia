@@ -12,7 +12,8 @@ public class Player : MonoBehaviour
     public GameObject health_manager;
 
     private Vector3 moveDirection;
-    public float speed = 0.01F;
+    public float speed = 0.3f;
+    private Rigidbody rb;
 
     public Inventory inventory;
     [SerializeField] public List<RawImage> icons = new List<RawImage>(new RawImage[4]);
@@ -35,7 +36,10 @@ public class Player : MonoBehaviour
     void Start()
     {
         inventory = gameObject.AddComponent<Inventory>();
+        rb = gameObject.GetComponent<Rigidbody>();
         c = Camera.main;
+
+        //загрузка иконок инвентаря
     }
 
     public void UpdateUI()
@@ -52,7 +56,6 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown("s"))
         {
             moveDirection += -transform.forward;
-           
         }
 
         if (Input.GetKeyDown("w"))
@@ -69,9 +72,12 @@ public class Player : MonoBehaviour
         {
             moveDirection += transform.right;
         }
-
-        moveDirection *= speed * Time.deltaTime;
-        transform.position += moveDirection;
+        //print(moveDirection);
+        moveDirection *= speed * Time.fixedDeltaTime;
+        //transform.position += moveDirection;
+        if (moveDirection != Vector3.zero) {
+           rb.MovePosition(transform.position + moveDirection);
+        }
     }
 
     void Rotate()
