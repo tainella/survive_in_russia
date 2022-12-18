@@ -16,6 +16,7 @@ public class CollectableItem : MonoBehaviour
     private Vector3 offset = new Vector3(0, 0.5f, 0);
     private bool treeHit = false;
     private Inventory inventory;
+    private Player player;
 
     [SerializeField] public Item item;
 
@@ -26,6 +27,7 @@ public class CollectableItem : MonoBehaviour
             uiUse.enabled = true;
             treeHit = true;
             inventory = other.gameObject.GetComponent<Inventory>();
+            player = other.gameObject.GetComponent<Player>();
         }
     }
 
@@ -35,15 +37,12 @@ public class CollectableItem : MonoBehaviour
         treeHit = false;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         uiUse = Instantiate(prefabUI, FindObjectOfType<Canvas>().transform.Find("Inventory_panel").transform).GetComponent<RawImage>();
-        //prefabUI.enabled = false; 
         cam = Camera.main;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 item_pos = transform.position;
@@ -53,6 +52,8 @@ public class CollectableItem : MonoBehaviour
         {
             uiUse.enabled = false;
             inventory.AddItems(item);
+            player.UpdateUI();
+            player.Check();
             Destroy(gameObject);
         }
     }

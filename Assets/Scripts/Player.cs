@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static UnityEditor.FilePathAttribute;
 using static UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle;
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour
         c = Camera.main;
 
         //загрузка иконок инвентаря
+        
     }
 
     public void UpdateUI()
@@ -93,13 +95,18 @@ public class Player : MonoBehaviour
         c.transform.rotation = transform.rotation;
     }
 
+    public void Check()
+    {
+        if (inventory.GetSize() == 4)
+        {
+            SceneManager.LoadScene("Win");
+        }
+    }
 
     void Update()
     {
         //перемещение
         SimpleMovement();
         Rotate();
-
-        UpdateUI();
     }
 }

@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fail.unity
     guid: c0de1c956191245ddb4d480bacb33200
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 0b8e0ef234be9466e8ded9babcfeff08
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: bae28a526e999482f8788dc492635549, type: 2}
