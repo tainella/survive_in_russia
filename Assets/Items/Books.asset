@@ -13,4 +13,3 @@ MonoBehaviour:
   m_Name: Books
   m_EditorClassIdentifier: 
   id: 0
-  icon: {fileID: 5207457626644213826, guid: aa211800dbf464f87aa091ff5d3e9c11, type: 3}

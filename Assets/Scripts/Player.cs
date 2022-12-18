@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
     {
         for (int i = 0; i < inventory.GetSize(); i++)
         {
-            icons[i].texture = inventory.GetItem(i).icon.texture;
+            icons[inventory.GetItem(i).id].enabled = true;
         }
     }
 
@@ -99,12 +99,7 @@ public class Player : MonoBehaviour
         //перемещение
         SimpleMovement();
         Rotate();
-        
-        for (int i = 0; i < inventory.GetSize(); i++)
-        {
-            icons[i].texture = inventory.GetItem(i).icon.texture;
-            icons[i].enabled = true;
-        }
-        
+
+        UpdateUI();
     }
 }

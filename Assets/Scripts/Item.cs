@@ -7,5 +7,4 @@ using UnityEngine.UI;
 public class Item : ScriptableObject
 {
     public int id;
-    public RawImage icon;
 }
