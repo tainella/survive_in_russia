@@ -20,7 +20,7 @@ public class JsonLoad
     
     {
         SetPaths();
-        playerInfo = new PlayerInfo(3, -107.6f, 3.927836f, 77.3f, 0.0f, 0.0f,0.0f, false, false,false, false);
+        playerInfo = new PlayerInfo(3, -107.6f, 3.927836f, 77.3f, 0.0f, 0.0f,0.0f, false, false,false, false, false, false);
         Debug.Log("create player");
         SaveData();
         Debug.Log("svae");

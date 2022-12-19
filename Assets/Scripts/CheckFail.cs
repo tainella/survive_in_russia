@@ -15,10 +15,10 @@ public class CheckFail : MonoBehaviour
     IEnumerator GoToScene()
     {
        print("hello");
-       yield return new WaitForSeconds(2);
+       yield return new WaitForSeconds(3);
        JsonLoad json= new JsonLoad();
        json.LoadData();
-       if (json.playerInfo.lifes ==-1){
+       if (json.playerInfo.lifes <= 0){
            SceneManager.LoadScene("Fail");
        }
        else{

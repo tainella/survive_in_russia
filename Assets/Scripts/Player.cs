@@ -43,6 +43,9 @@ public class Player : MonoBehaviour
 
         JsonLoad json = new JsonLoad();
         json.LoadData();
+        //подгрузка числа жизней
+        health_manager.GetComponent<Health>().Set_health(json.playerInfo.lifes);
+
         //загрузка положения и поворота персонажа
         transform.position = new Vector3(json.playerInfo.x, json.playerInfo.y, json.playerInfo.z);
         transform.eulerAngles = new Vector3(json.playerInfo.rotate_x, json.playerInfo.rotate_y, json.playerInfo.rotate_z);

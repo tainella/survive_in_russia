@@ -15,8 +15,10 @@ public class PlayerInfo
      public bool boots;
      public bool present;
      public bool food;
-     
-     public PlayerInfo(int lifes, float x, float y, float z, float rotate_x, float rotate_y, float rotate_z,bool book, bool boots, bool present, bool food)
+     public bool met_gopnik;
+     public bool met_babka;
+
+    public PlayerInfo(int lifes, float x, float y, float z, float rotate_x, float rotate_y, float rotate_z,bool book, bool boots, bool present, bool food, bool met_babka, bool met_gopnik)
      {
          this.lifes=lifes;
          this.x=x;
@@ -29,6 +31,7 @@ public class PlayerInfo
          this.boots=boots;
          this.food=food;
          this.present=present;
-         
-     }
+         this.met_babka = met_babka;
+         this.met_gopnik = met_gopnik;
+    }
 }
