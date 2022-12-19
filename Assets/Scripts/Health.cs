@@ -16,9 +16,9 @@ public class Health : MonoBehaviour
         health = 3;
     }
 
-    public void Decrease()
+    public void Set_health(int count)
     {
-        health -= 1;
+        health = count;
         switch (health)
         {
             case 0:
@@ -45,32 +45,13 @@ public class Health : MonoBehaviour
                     heart3.gameObject.SetActive(false);
                     break;
                 }
+            case 3:
+                {
+                    heart1.gameObject.SetActive(true);
+                    heart2.gameObject.SetActive(true);
+                    heart3.gameObject.SetActive(true);
+                    break;
+                }
         }
     }
-
-    public void Increase()
-    {
-        if (health < 3) {
-            health += 1;
-
-            switch (health)
-            {
-                case 2:
-                    {
-                        heart1.gameObject.SetActive(true);
-                        heart2.gameObject.SetActive(true);
-                        heart3.gameObject.SetActive(false);
-                        break;
-                    }
-                case 3:
-                    {
-                        heart1.gameObject.SetActive(true);
-                        heart2.gameObject.SetActive(true);
-                        heart3.gameObject.SetActive(true);
-                        break;
-                    }
-            }
-        }
-    }
-
 }
