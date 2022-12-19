@@ -24,6 +24,25 @@ public class Inventory : MonoBehaviour
     {
         InventorySlot new_slot = new InventorySlot(item);
         items.Add(new_slot);
+
+        JsonLoad json = new JsonLoad();
+        json.LoadData();
+        if (item.id == 0) {
+            json.playerInfo.book = true;
+        }
+        else if (item.id == 1)
+        {
+            json.playerInfo.boots = true;
+        }
+        else if (item.id == 2)
+        {
+            json.playerInfo.present = true;
+        }
+        else
+        {
+            json.playerInfo.food = true;
+        }
+        json.SaveData();
     }
 
     public Item GetItem(int i)

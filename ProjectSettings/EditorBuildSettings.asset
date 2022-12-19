@@ -17,12 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/babka.unity
     guid: a146159496d82ce539aaffb0e0dd87d7
- - enabled: 1
-    path: Assets/Scenes/Win.unity
-    guid: 0b8e0ef234be9466e8ded9babcfeff08
-  - enabled: 1
-    path: Assets/Scenes/main_scene.unity
-    guid: 5e0cfae5d202e5228b30fcb8de6b525a
   - enabled: 1
     path: Assets/Scenes/babka_faill.unity
     guid: 36b53d032d3d8005b918ada6a82dfe8b
@@ -32,6 +26,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/gopnik_fail.unity
     guid: c8839467b47a3f05488934bb95432a90
+  - enabled: 1
+    path: Assets/Scenes/main_scene.unity
+    guid: 5e0cfae5d202e5228b30fcb8de6b525a
+  - enabled: 1
+    path: Assets/Scenes/mamka.unity
+    guid: f34d30dd0237c5a7d9c16291da5ed7bd
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 0b8e0ef234be9466e8ded9babcfeff08
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: bae28a526e999482f8788dc492635549, type: 2}

@@ -7,13 +7,14 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static UnityEditor.FilePathAttribute;
 using static UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle;
+using static UnityEditor.Progress;
 
 public class Player : MonoBehaviour
 {
     public GameObject health_manager;
 
     private Vector3 moveDirection;
-    public float speed = 0.3f;
+    public float speed = 0.005f;
     private Rigidbody rb;
 
     public Inventory inventory;
@@ -40,8 +41,41 @@ public class Player : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
         c = Camera.main;
 
+        JsonLoad json = new JsonLoad();
+        json.LoadData();
+        //загрузка положения и поворота персонажа
+        transform.position = new Vector3(json.playerInfo.x, json.playerInfo.y, json.playerInfo.z);
+        transform.eulerAngles = new Vector3(json.playerInfo.rotate_x, json.playerInfo.rotate_y, json.playerInfo.rotate_z);
+        c.transform.position = transform.position;
+        c.transform.eulerAngles = transform.eulerAngles;
+
         //загрузка иконок инвентаря
-        
+        if (json.playerInfo.book == true)
+        {
+            Item item1 = new Item();
+            item1.id = 0;
+            inventory.AddItems(item1);
+        }
+        if (json.playerInfo.boots == true)
+        {
+            Item item1 = new Item();
+            item1.id = 1;
+            inventory.AddItems(item1);
+        }
+        if (json.playerInfo.present == true)
+        {
+            Item item1 = new Item();
+            item1.id = 2;
+            inventory.AddItems(item1);
+        }
+        if (json.playerInfo.food == true)
+        {
+            Item item1 = new Item();
+            item1.id = 3;
+            inventory.AddItems(item1);
+        }
+
+        UpdateUI();
     }
 
     public void UpdateUI()
@@ -75,11 +109,11 @@ public class Player : MonoBehaviour
             moveDirection += transform.right;
         }
         //print(moveDirection);
-        moveDirection *= speed * Time.fixedDeltaTime;
-        //transform.position += moveDirection;
+        moveDirection *= speed;
         if (moveDirection != Vector3.zero) {
            rb.MovePosition(transform.position + moveDirection);
         }
+        transform.position = new Vector3(transform.position.x, 4, transform.position.z);
     }
 
     void Rotate()

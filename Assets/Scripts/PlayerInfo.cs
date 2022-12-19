@@ -5,18 +5,18 @@ using UnityEngine;
 public class PlayerInfo
 {
      public int lifes;
-     public double x;
-     public double y;
-     public double z;
-     public double rotate_x;
-     public double rotate_y;
-     public double rotate_z;
+     public float x;
+     public float y;
+     public float z;
+     public float rotate_x;
+     public float rotate_y;
+     public float rotate_z;
      public bool book;
      public bool boots;
      public bool present;
      public bool food;
      
-     public PlayerInfo(int lifes, double x, double y, double z, double rotate_x, double rotate_y, double rotate_z,bool book, bool boots, bool present, bool food)
+     public PlayerInfo(int lifes, float x, float y, float z, float rotate_x, float rotate_y, float rotate_z,bool book, bool boots, bool present, bool food)
      {
          this.lifes=lifes;
          this.x=x;
