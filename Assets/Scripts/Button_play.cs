@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.IO;
+
 
 public class Button_play : MonoBehaviour
 {
-    //public Button yourButton;
-
 	void Start () {
 		Button btn = GetComponent<Button>();
 		btn.onClick.AddListener(TaskOnClick);
@@ -15,6 +15,8 @@ public class Button_play : MonoBehaviour
 
 	void TaskOnClick(){
 		Debug.Log("You have clicked the Play button!");
-		SceneManager.LoadScene("Game");
+		JsonLoad json= new JsonLoad();
+		json.CreateDefaultPlayerData();
+		SceneManager.LoadScene("main_scene");
 	}
 }

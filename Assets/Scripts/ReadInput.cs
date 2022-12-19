@@ -18,7 +18,12 @@ public class ReadInput : MonoBehaviour
     	}
     	else
     	{
-    	   SceneManager.LoadScene("babka_fail");
+    	   print("start");
+    	   JsonLoad json= new JsonLoad();
+    	   json.LoadData();
+    	   json.playerInfo.lifes -=1;
+    	   json.SaveData();
+    	   SceneManager.LoadScene("babka_faill");
     	}
     	
     }
