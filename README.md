@@ -15,5 +15,6 @@ Game design document: https://docs.google.com/document/d/1IY0INsd6iRRwCrw-MODjVU
 - Движение: WSAD
 - Собрать предмет: Е
 - Перейти на следующий диалоговый экран: Space
+- Диалог с NPC начинается при приближении к NPC
 
 
