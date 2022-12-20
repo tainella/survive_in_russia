@@ -1,6 +1,6 @@
+using System.Diagnostics;
 using System.IO;
 using UnityEngine;
-
 
 public class JsonLoad
 {
@@ -8,35 +8,24 @@ public class JsonLoad
 
     private string path = "";
 
-    // Start is called before the first frame update
-  
     private void SetPaths()
     {
-        path = "Assets/Scripts"+ Path.AltDirectorySeparatorChar + "load_scene.json";
-        //persistentPath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "SaveData.json";
+        path = "Assets/Scripts" + Path.AltDirectorySeparatorChar + "load_scene.json";
     }
 
     public void CreateDefaultPlayerData()
-    
+
     {
         SetPaths();
-        playerInfo = new PlayerInfo(3, -107.6f, 3.927836f, 77.3f, 0.0f, 0.0f,0.0f, false, false,false, false, false, false);
-        Debug.Log("create player");
+        playerInfo = new PlayerInfo(3, -107.6f, 3.927836f, 77.3f, 0.0f, 0.0f, 0.0f, false, false, false, false, false, false);
         SaveData();
-        Debug.Log("svae");
     }
 
-    
-
-    // Update is called once per frame
-   
     public void SaveData()
     {
         string savePath = path;
 
-        Debug.Log("Saving Data at " + savePath);
         string json = JsonUtility.ToJson(playerInfo);
-        Debug.Log(json);
 
         using StreamWriter writer = new StreamWriter(savePath);
         writer.Write(json);
@@ -49,8 +38,6 @@ public class JsonLoad
         string json = reader.ReadToEnd();
 
         PlayerInfo data = JsonUtility.FromJson<PlayerInfo>(json);
-        playerInfo=data;
-        Debug.Log(data.ToString());
+        playerInfo = data;
     }
 }
-
