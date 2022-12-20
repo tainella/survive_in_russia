@@ -45,9 +45,9 @@ public class Player : MonoBehaviour
 
         //загрузка положения и поворота персонажа
         transform.position = new Vector3(json.playerInfo.x, json.playerInfo.y, json.playerInfo.z);
-        transform.rotation = Quaternion.Euler(json.playerInfo.rotate_x, json.playerInfo.rotate_y, json.playerInfo.rotate_z);
+        transform.eulerAngles = new Vector3(json.playerInfo.rotateX, json.playerInfo.rotateY, json.playerInfo.rotateZ);
         c.transform.position = transform.position;
-        c.transform.rotation = transform.rotation;
+        c.transform.eulerAngles = transform.eulerAngles;
 
         //загрузка иконок инвентаря
         if (json.playerInfo.book == true)
