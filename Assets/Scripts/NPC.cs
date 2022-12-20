@@ -18,9 +18,9 @@ public class NPC : MonoBehaviour
             json.playerInfo.x = other.transform.position.x;
             json.playerInfo.y = other.transform.position.y;
             json.playerInfo.z = other.transform.position.z;
-            json.playerInfo.rotateX = other.transform.rotation.x;
-            json.playerInfo.rotateY = other.transform.rotation.y;
-            json.playerInfo.rotateZ = other.transform.rotation.z;
+            json.playerInfo.rotateX = other.transform.eulerAngles.x;
+            json.playerInfo.rotateY = other.transform.eulerAngles.y;
+            json.playerInfo.rotateZ = other.transform.eulerAngles.z;
 
             if (id == 0) //мама
             {
