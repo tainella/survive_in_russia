@@ -18,9 +18,9 @@ public class NPC : MonoBehaviour
             json.playerInfo.x = other.transform.position.x;
             json.playerInfo.y = other.transform.position.y;
             json.playerInfo.z = other.transform.position.z;
-            json.playerInfo.rotate_x = other.transform.rotation.x;
-            json.playerInfo.rotate_y = other.transform.rotation.y;
-            json.playerInfo.rotate_z = other.transform.rotation.z;
+            json.playerInfo.rotateX = other.transform.rotation.x;
+            json.playerInfo.rotateY = other.transform.rotation.y;
+            json.playerInfo.rotateZ = other.transform.rotation.z;
 
             if (id == 0) //мама
             {
@@ -28,15 +28,15 @@ public class NPC : MonoBehaviour
                 json.SaveData();
                 SceneManager.LoadScene("Mother");
             }
-            else if ((id == 1) & (json.playerInfo.met_gopnik == false)) //гопник
+            else if ((id == 1) & (json.playerInfo.metGopnik == false)) //гопник
             {
-                json.playerInfo.met_gopnik = true;
+                json.playerInfo.metGopnik = true;
                 json.SaveData();
                 SceneManager.LoadScene("Gopnik");
             }
-            else if ((id == 2) & (json.playerInfo.met_babka == false)) //старушка
+            else if ((id == 2) & (json.playerInfo.metGranny == false)) //старушка
             {
-                json.playerInfo.met_babka = true;
+                json.playerInfo.metGranny = true;
                 json.SaveData();
                 SceneManager.LoadScene("Granny");
             }
