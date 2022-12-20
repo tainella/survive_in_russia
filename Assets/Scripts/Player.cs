@@ -7,13 +7,14 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static UnityEditor.FilePathAttribute;
 using static UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle;
+using static UnityEditor.Progress;
 
 public class Player : MonoBehaviour
 {
     public GameObject health_manager;
 
     private Vector3 moveDirection;
-    public float speed = 0.3f;
+    public float speed = 10f;
     private Rigidbody rb;
 
     public Inventory inventory;
@@ -40,8 +41,44 @@ public class Player : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
         c = Camera.main;
 
+        JsonLoad json = new JsonLoad();
+        json.LoadData();
+        //подгрузка числа жизней
+        health_manager.GetComponent<Health>().Set_health(json.playerInfo.lifes);
+
+        //загрузка положения и поворота персонажа
+        transform.position = new Vector3(json.playerInfo.x, json.playerInfo.y, json.playerInfo.z);
+        transform.eulerAngles = new Vector3(json.playerInfo.rotate_x, json.playerInfo.rotate_y, json.playerInfo.rotate_z);
+        c.transform.position = transform.position;
+        c.transform.eulerAngles = transform.eulerAngles;
+
         //загрузка иконок инвентаря
-        
+        if (json.playerInfo.book == true)
+        {
+            Item item1 = new Item();
+            item1.id = 0;
+            inventory.AddItems(item1);
+        }
+        if (json.playerInfo.boots == true)
+        {
+            Item item1 = new Item();
+            item1.id = 1;
+            inventory.AddItems(item1);
+        }
+        if (json.playerInfo.present == true)
+        {
+            Item item1 = new Item();
+            item1.id = 2;
+            inventory.AddItems(item1);
+        }
+        if (json.playerInfo.food == true)
+        {
+            Item item1 = new Item();
+            item1.id = 3;
+            inventory.AddItems(item1);
+        }
+
+        UpdateUI();
     }
 
     public void UpdateUI()
@@ -54,32 +91,8 @@ public class Player : MonoBehaviour
 
     void SimpleMovement()
     {
-        moveDirection = Vector3.zero;
-        if (Input.GetKeyDown("s"))
-        {
-            moveDirection += -transform.forward;
-        }
-
-        if (Input.GetKeyDown("w"))
-        {
-            moveDirection += transform.forward;
-        }
-
-        if (Input.GetKeyDown("a"))
-        {
-            moveDirection += -transform.right;
-        }
-
-        if (Input.GetKeyDown("d"))
-        {
-            moveDirection += transform.right;
-        }
-        //print(moveDirection);
-        moveDirection *= speed * Time.fixedDeltaTime;
-        //transform.position += moveDirection;
-        if (moveDirection != Vector3.zero) {
-           rb.MovePosition(transform.position + moveDirection);
-        }
+        Vector3 inputDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
+        rb.velocity = transform.TransformDirection(inputDirection) * speed;
     }
 
     void Rotate()
