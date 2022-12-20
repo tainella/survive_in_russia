@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Button_good : MonoBehaviour
+public class ButtonGood : MonoBehaviour
 {
     void Start()
     {

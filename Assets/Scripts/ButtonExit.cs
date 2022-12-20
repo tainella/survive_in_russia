@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Button_exit : MonoBehaviour
+public class ButtonExit : MonoBehaviour
 {
 	void Start () {
 		Button btn = GetComponent<Button>();
