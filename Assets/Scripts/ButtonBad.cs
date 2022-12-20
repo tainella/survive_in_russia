@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Button_bad : MonoBehaviour
+public class ButtonBad : MonoBehaviour
 {
     void Start () {
 	    Button btn = GetComponent<Button>();

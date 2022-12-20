@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using System.IO;
 
 
-public class Button_play : MonoBehaviour
+public class ButtonPlay : MonoBehaviour
 {
 	void Start () {
 		Button btn = GetComponent<Button>();
