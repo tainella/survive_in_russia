@@ -41,6 +41,27 @@ public class CollectableItem : MonoBehaviour
     {
         uiUse = Instantiate(prefabUI, FindObjectOfType<Canvas>().transform.Find("Inventory_panel").transform).GetComponent<RawImage>();
         cam = Camera.main;
+
+        //если он уже есть в инвентаре: сразу уничтожить
+        JsonLoad json = new JsonLoad();
+        json.LoadData();
+        if (item.id == 0 && json.playerInfo.book == true)
+        {
+            Destroy(gameObject);
+        }
+        else if (item.id == 1 && json.playerInfo.boots == true)
+        {
+            Destroy(gameObject);
+        }
+        else if (item.id == 2 && json.playerInfo.present == true)
+        {
+            Destroy(gameObject);
+        }
+        else if (json.playerInfo.food == true)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     void Update()
