@@ -23,7 +23,7 @@ public class CheckFail : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("Main_scene");
+                SceneManager.LoadScene("MainScene");
             }
         }
     }

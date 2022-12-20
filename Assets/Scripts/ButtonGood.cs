@@ -15,6 +15,6 @@ public class ButtonGood : MonoBehaviour
     void TaskOnClick()
     {
         Debug.Log("You have clicked the True button!");
-        SceneManager.LoadScene("Gopnik_win");
+        SceneManager.LoadScene("GopnikWin");
     }
 }

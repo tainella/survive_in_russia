@@ -14,7 +14,7 @@ public class ReadInput : MonoBehaviour
     {
         if (s.Trim() == "1917")
         {
-            SceneManager.LoadScene("Granny_win");
+            SceneManager.LoadScene("GrannyWin");
         }
         else
         {
@@ -22,7 +22,7 @@ public class ReadInput : MonoBehaviour
             json.LoadData();
             json.playerInfo.lifes -= 1;
             json.SaveData();
-            SceneManager.LoadScene("Granny_fail");
+            SceneManager.LoadScene("GrannyFail");
         }
     	
     }

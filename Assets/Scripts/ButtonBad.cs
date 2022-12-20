@@ -17,7 +17,7 @@ public class ButtonBad : MonoBehaviour
 	    json.LoadData();
 	    json.playerInfo.lifes-=1;
 	    json.SaveData();
-	    SceneManager.LoadScene("Gopnik_fail"); 
+	    SceneManager.LoadScene("GopnikFail"); 
 		
 	}
 }
