@@ -26,7 +26,7 @@ public class NPC : MonoBehaviour
             {
                 json.playerInfo.lifes -= 3;
                 json.SaveData();
-                SceneManager.LoadScene("Mamka");
+                SceneManager.LoadScene("Mother");
             }
             else if ((id == 1) & (json.playerInfo.met_gopnik == false)) //гопник
             {
@@ -38,7 +38,7 @@ public class NPC : MonoBehaviour
             {
                 json.playerInfo.met_babka = true;
                 json.SaveData();
-                SceneManager.LoadScene("Babka");
+                SceneManager.LoadScene("Granny");
             }
         }
     }

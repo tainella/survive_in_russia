@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Button_bad : MonoBehaviour
 {
-       void Start () {
+    void Start () {
 	    Button btn = GetComponent<Button>();
 	    btn.onClick.AddListener(TaskOnClick);
 	}
