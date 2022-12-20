@@ -14,10 +14,9 @@ public class JsonLoad
     }
 
     public void CreateDefaultPlayerData()
-
     {
         SetPaths();
-        playerInfo = new PlayerInfo(3, -107.6f, 3.927836f, 77.3f, 0.0f, 0.0f, 0.0f, false, false, false, false, false, false);
+        playerInfo = new PlayerInfo(3, -107.6f, 4f, 77.3f, 0.0f, 90.0f, 0.0f, false, false, false, false, false, false);
         SaveData();
     }
 

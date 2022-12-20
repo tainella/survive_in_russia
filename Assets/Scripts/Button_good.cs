@@ -4,17 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
-public class ButtonTrueAnsw : MonoBehaviour
+public class Button_good : MonoBehaviour
 {
-    // Start is called before the first frame update
-       void Start () {
-           Button btn = GetComponent<Button>();
-           btn.onClick.AddListener(TaskOnClick);
-	}
+    void Start()
+    {
+        Button btn = GetComponent<Button>();
+        btn.onClick.AddListener(TaskOnClick);
+    }
 
-	void TaskOnClick(){
-	    Debug.Log ("You have clicked the True button!");
-	    SceneManager.LoadScene("main_scene");
-	}
+    void TaskOnClick()
+    {
+        Debug.Log("You have clicked the True button!");
+        SceneManager.LoadScene("Gopnik_win");
+    }
 }

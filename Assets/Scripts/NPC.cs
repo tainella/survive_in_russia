@@ -18,27 +18,27 @@ public class NPC : MonoBehaviour
             json.playerInfo.x = other.transform.position.x;
             json.playerInfo.y = other.transform.position.y;
             json.playerInfo.z = other.transform.position.z;
-            json.playerInfo.rotate_x = other.transform.eulerAngles.x;
-            json.playerInfo.rotate_y = other.transform.eulerAngles.y;
-            json.playerInfo.rotate_z = other.transform.eulerAngles.z;
+            json.playerInfo.rotate_x = other.transform.rotation.x;
+            json.playerInfo.rotate_y = other.transform.rotation.y;
+            json.playerInfo.rotate_z = other.transform.rotation.z;
 
             if (id == 0) //мама
             {
                 json.playerInfo.lifes -= 3;
                 json.SaveData();
-                SceneManager.LoadScene("mamka");
+                SceneManager.LoadScene("Mamka");
             }
             else if ((id == 1) & (json.playerInfo.met_gopnik == false)) //гопник
             {
                 json.playerInfo.met_gopnik = true;
                 json.SaveData();
-                SceneManager.LoadScene("gopnik");
+                SceneManager.LoadScene("Gopnik");
             }
             else if ((id == 2) & (json.playerInfo.met_babka == false)) //старушка
             {
                 json.playerInfo.met_babka = true;
                 json.SaveData();
-                SceneManager.LoadScene("babka");
+                SceneManager.LoadScene("Babka");
             }
         }
     }

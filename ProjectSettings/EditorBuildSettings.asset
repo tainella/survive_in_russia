@@ -15,26 +15,40 @@ EditorBuildSettings:
     path: Assets/Scenes/Fail.unity
     guid: c0de1c956191245ddb4d480bacb33200
   - enabled: 1
-    path: Assets/Scenes/babka.unity
+    path: Assets/Scenes/Babka.unity
     guid: a146159496d82ce539aaffb0e0dd87d7
   - enabled: 1
-    path: Assets/Scenes/babka_faill.unity
+    path: Assets/Scenes/Babka_fail.unity
     guid: 36b53d032d3d8005b918ada6a82dfe8b
   - enabled: 1
-    path: Assets/Scenes/gopnik.unity
+    path: Assets/Scenes/Gopnik.unity
     guid: cc66ce65c0bf589229d58a872c38f7fc
   - enabled: 1
-    path: Assets/Scenes/gopnik_fail.unity
+    path: Assets/Scenes/Gopnik_fail.unity
     guid: c8839467b47a3f05488934bb95432a90
   - enabled: 1
-    path: Assets/Scenes/main_scene.unity
+    path: Assets/Scenes/Main_scene.unity
     guid: 5e0cfae5d202e5228b30fcb8de6b525a
   - enabled: 1
-    path: Assets/Scenes/mamka.unity
+    path: Assets/Scenes/Mamka.unity
     guid: f34d30dd0237c5a7d9c16291da5ed7bd
   - enabled: 1
     path: Assets/Scenes/Win.unity
     guid: 0b8e0ef234be9466e8ded9babcfeff08
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: 1311dec5f0544460996683b4526d5ca9
+  - enabled: 1
+    path: Assets/Scenes/Rules.unity
+    guid: b2d6bb08364ad455ab1c203aadc931cb
+  - enabled: 1
+    path: Assets/Scenes/Gopnik_win.unity
+    guid: 9ccad7cf286fc465d996d8adfa6772e6
+  - enabled: 1
+    path: Assets/Scenes/Babka_win.unity
+    guid: 54583b99b43aa4728a9179a949ddb6a6
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 4802818f587ea4974865a915ba47e3ef,
+      type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: 0f774529bc1f4f23fbac51f3fa2747b4, type: 2}

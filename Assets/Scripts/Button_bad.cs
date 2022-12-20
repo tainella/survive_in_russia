@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Button_bad : MonoBehaviour
 {
-    // Start is called before the first frame update
        void Start () {
 	    Button btn = GetComponent<Button>();
 	    btn.onClick.AddListener(TaskOnClick);
@@ -18,7 +17,7 @@ public class Button_bad : MonoBehaviour
 	    json.LoadData();
 	    json.playerInfo.lifes-=1;
 	    json.SaveData();
-	    SceneManager.LoadScene("gopnik_fail"); 
+	    SceneManager.LoadScene("Gopnik_fail"); 
 		
 	}
 }

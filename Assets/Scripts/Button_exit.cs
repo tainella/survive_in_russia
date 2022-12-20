@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class Button_exit : MonoBehaviour
 {
-    //public Button yourButton;
-
 	void Start () {
 		Button btn = GetComponent<Button>();
 		btn.onClick.AddListener(TaskOnClick);

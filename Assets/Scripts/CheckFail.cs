@@ -5,25 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class CheckFail : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private JsonLoad json;
+
     void Start()
     {
-        StartCoroutine(GoToScene());
+        json = new JsonLoad();
+        json.LoadData();
     }
 
-    // Update is called once per frame
-    IEnumerator GoToScene()
+    private void Update()
     {
-       print("hello");
-       yield return new WaitForSeconds(3);
-       JsonLoad json= new JsonLoad();
-       json.LoadData();
-       if (json.playerInfo.lifes <= 0){
-           SceneManager.LoadScene("Fail");
-       }
-       else{
-           SceneManager.LoadScene("main_scene");
-       }
-       
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (json.playerInfo.lifes <= 0)
+            {
+                SceneManager.LoadScene("Fail");
+            }
+            else
+            {
+                SceneManager.LoadScene("Main_scene");
+            }
+        }
     }
 }

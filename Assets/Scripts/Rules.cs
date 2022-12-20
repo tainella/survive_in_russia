@@ -9,7 +9,7 @@ public class Rules : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene("main_scene");
+            SceneManager.LoadScene("Main_scene");
         }
     }
 }

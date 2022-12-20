@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
 	public GameObject heart3;
 
 	int health;
-    // Start is called before the first frame update
+
     void Start()
     {
         health = 3;
@@ -26,8 +26,6 @@ public class Health : MonoBehaviour
                     heart1.gameObject.SetActive(false);
                     heart2.gameObject.SetActive(false);
                     heart3.gameObject.SetActive(false);
-                    //обработка проигрыша
-
                     SceneManager.LoadScene("Fail");
                     break;
                 }

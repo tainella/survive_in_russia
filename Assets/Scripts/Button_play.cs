@@ -15,8 +15,8 @@ public class Button_play : MonoBehaviour
 
 	void TaskOnClick(){
 		Debug.Log("You have clicked the Play button!");
-		JsonLoad json= new JsonLoad();
+		JsonLoad json = new JsonLoad();
 		json.CreateDefaultPlayerData();
-		SceneManager.LoadScene("main_scene");
+		SceneManager.LoadScene("Intro");
 	}
 }

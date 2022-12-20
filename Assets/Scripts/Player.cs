@@ -5,9 +5,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEditor.FilePathAttribute;
-using static UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle;
-using static UnityEditor.Progress;
 
 public class Player : MonoBehaviour
 {
@@ -48,9 +45,9 @@ public class Player : MonoBehaviour
 
         //загрузка положения и поворота персонажа
         transform.position = new Vector3(json.playerInfo.x, json.playerInfo.y, json.playerInfo.z);
-        transform.eulerAngles = new Vector3(json.playerInfo.rotate_x, json.playerInfo.rotate_y, json.playerInfo.rotate_z);
+        transform.rotation = Quaternion.Euler(json.playerInfo.rotate_x, json.playerInfo.rotate_y, json.playerInfo.rotate_z);
         c.transform.position = transform.position;
-        c.transform.eulerAngles = transform.eulerAngles;
+        c.transform.rotation = transform.rotation;
 
         //загрузка иконок инвентаря
         if (json.playerInfo.book == true)

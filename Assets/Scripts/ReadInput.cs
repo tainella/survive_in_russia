@@ -12,19 +12,18 @@ public class ReadInput : MonoBehaviour
     
     public void GetText( string s)
     {
-    	if (s.Trim()=="1917"){
-    	   SceneManager.LoadScene("main_scene");
-    	   
-    	}
-    	else
-    	{
-    	   print("start");
-    	   JsonLoad json= new JsonLoad();
-    	   json.LoadData();
-    	   json.playerInfo.lifes -=1;
-    	   json.SaveData();
-    	   SceneManager.LoadScene("babka_faill");
-    	}
+        if (s.Trim() == "1917")
+        {
+            SceneManager.LoadScene("Babka_win");
+        }
+        else
+        {
+            JsonLoad json = new JsonLoad();
+            json.LoadData();
+            json.playerInfo.lifes -= 1;
+            json.SaveData();
+            SceneManager.LoadScene("Babka_fail");
+        }
     	
     }
 }
