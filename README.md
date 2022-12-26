@@ -3,6 +3,8 @@
 
 Game design document: https://docs.google.com/document/d/1IY0INsd6iRRwCrw-MODjVU2GHuuSIHjdS6n8fL4Fh40/edit
 
+Видео прохождения: https://drive.google.com/file/d/10sEiA4ks3A1uZTx932U8KFsRQ6Q_h6J9/view?usp=sharing
+
 ## Идея
 
 Парень 20 лет пытается выжить в российском городе Магадан и уехать в магистратуру в Harvard. У него три жизни на один уровень. Задача героя: собрать целиком инвентарь и выбраться из города.
