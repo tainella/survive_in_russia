@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.16059239, g: 0.2166273, b: 0.24258229, a: 1}
+  m_IndirectSpecularColor: {r: 0.16071086, g: 0.21652223, b: 0.2424718, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3818,6 +3818,30 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 196746964}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &808294757 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9130388383463174217, guid: e9f93646347c64781ac8e50cfef4b88d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1994702091}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &808294765
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808294757}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 1
+  m_Radius: 1.24
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &815250990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8925,6 +8949,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9130388383023014238, guid: e9f93646347c64781ac8e50cfef4b88d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130388383023014238, guid: e9f93646347c64781ac8e50cfef4b88d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9130388383463174217, guid: e9f93646347c64781ac8e50cfef4b88d,
         type: 3}
       propertyPath: m_Name
@@ -9010,7 +9044,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9130388383463174223, guid: e9f93646347c64781ac8e50cfef4b88d,
+        type: 3}
+      propertyPath: m_Radius
+      value: 4.03
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9130388383023014231, guid: e9f93646347c64781ac8e50cfef4b88d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e9f93646347c64781ac8e50cfef4b88d, type: 3}
 --- !u!1001 &2007255447
 PrefabInstance:

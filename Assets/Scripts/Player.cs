@@ -11,8 +11,8 @@ public class Player : MonoBehaviour
     public GameObject health_manager;
 
     private Vector3 moveDirection;
-    public float speed = 1e9f;
-    private Rigidbody rb;
+    public float speed = 10f;
+    private CharacterController charController;
 
     public Inventory inventory;
     [SerializeField] public List<RawImage> icons = new List<RawImage>(new RawImage[4]);
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         inventory = gameObject.AddComponent<Inventory>();
-        rb = gameObject.GetComponent<Rigidbody>();
+        charController = gameObject.GetComponent<CharacterController>();
         c = Camera.main;
 
         JsonLoad json = new JsonLoad();
@@ -88,7 +88,6 @@ public class Player : MonoBehaviour
 
     void SimpleMovement()
     {
-        //Vector3 inputDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
         Vector3 moveDirection = Vector3.zero;
         if (Input.GetKeyDown(KeyCode.W))
         {
@@ -110,7 +109,8 @@ public class Player : MonoBehaviour
             moveDirection -= transform.right;
         }
 
-        rb.velocity = moveDirection * speed;
+        moveDirection.y = 0;
+        charController.Move(moveDirection * speed);
     }
 
     void Rotate()
