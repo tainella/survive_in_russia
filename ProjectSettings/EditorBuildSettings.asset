@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 814e830d3002a462193a9d01d1faaf38
   - enabled: 1
-    path: Assets/Scenes/Main_scene.unity
+    path: Assets/Scenes/MainScene.unity
     guid: 5e0cfae5d202e5228b30fcb8de6b525a
   - enabled: 1
     path: Assets/Scenes/Fail.unity
@@ -18,13 +18,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Granny.unity
     guid: a146159496d82ce539aaffb0e0dd87d7
   - enabled: 1
-    path: Assets/Scenes/Granny_fail.unity
+    path: Assets/Scenes/GrannyFail.unity
     guid: 36b53d032d3d8005b918ada6a82dfe8b
   - enabled: 1
     path: Assets/Scenes/Gopnik.unity
     guid: cc66ce65c0bf589229d58a872c38f7fc
   - enabled: 1
-    path: Assets/Scenes/Gopnik_fail.unity
+    path: Assets/Scenes/GopnikFail.unity
     guid: c8839467b47a3f05488934bb95432a90
   - enabled: 1
     path: Assets/Scenes/Mother.unity
@@ -39,10 +39,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Rules.unity
     guid: b2d6bb08364ad455ab1c203aadc931cb
   - enabled: 1
-    path: Assets/Scenes/Gopnik_win.unity
+    path: Assets/Scenes/GopnikWin.unity
     guid: 9ccad7cf286fc465d996d8adfa6772e6
   - enabled: 1
-    path: Assets/Scenes/Granny_win.unity
+    path: Assets/Scenes/GrannyWin.unity
     guid: 54583b99b43aa4728a9179a949ddb6a6
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 4802818f587ea4974865a915ba47e3ef,

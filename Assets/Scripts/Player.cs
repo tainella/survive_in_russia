@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public GameObject health_manager;
 
     private Vector3 moveDirection;
-    public float speed = 10f;
+    public float speed = 1e9f;
     private Rigidbody rb;
 
     public Inventory inventory;
@@ -88,8 +88,29 @@ public class Player : MonoBehaviour
 
     void SimpleMovement()
     {
-        Vector3 inputDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
-        rb.velocity = transform.TransformDirection(inputDirection) * speed;
+        //Vector3 inputDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
+        Vector3 moveDirection = Vector3.zero;
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            moveDirection += transform.forward;
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            moveDirection -= transform.forward;
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            moveDirection += transform.right;
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            moveDirection -= transform.right;
+        }
+
+        rb.velocity = moveDirection * speed;
     }
 
     void Rotate()

@@ -10,7 +10,7 @@ public class ReadInput : MonoBehaviour
     private string input;
     
     
-    public void GetText( string s)
+    public void GetText(string s)
     {
         if (s.Trim() == "1917")
         {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using System.Linq;
 
 public class Health : MonoBehaviour
 {
@@ -9,47 +10,33 @@ public class Health : MonoBehaviour
 	public GameObject heart2;
 	public GameObject heart3;
 
-	int health;
+    private GameObject[] healthItems;
 
-    void Start()
+    void Awake()
     {
-        health = 3;
+        InitializeHealth();
     }
 
-    public void Set_health(int count)
+    public void Set_health(int health)
     {
-        health = count;
-        switch (health)
+        if (health < 1)
         {
-            case 0:
-                {
-                    heart1.gameObject.SetActive(false);
-                    heart2.gameObject.SetActive(false);
-                    heart3.gameObject.SetActive(false);
-                    SceneManager.LoadScene("Fail");
-                    break;
-                }
-            case 1:
-                {
-                    heart1.gameObject.SetActive(true);
-                    heart2.gameObject.SetActive(false);
-                    heart3.gameObject.SetActive(false);
-                    break;
-                }
-            case 2:
-                {
-                    heart1.gameObject.SetActive(true);
-                    heart2.gameObject.SetActive(true);
-                    heart3.gameObject.SetActive(false);
-                    break;
-                }
-            case 3:
-                {
-                    heart1.gameObject.SetActive(true);
-                    heart2.gameObject.SetActive(true);
-                    heart3.gameObject.SetActive(true);
-                    break;
-                }
+            SceneManager.LoadScene("Fail");
+            return;
+        }
+
+        for (int i = 0; i < healthItems.Length; i++)
+        {
+            healthItems[i].SetActive(i + 1 <= health);
+        }
+    }
+
+    private void InitializeHealth()
+    {
+        healthItems = new[] { heart1, heart2, heart3 };
+        foreach (var item in healthItems)
+        {
+            item.SetActive(true);
         }
     }
 }
