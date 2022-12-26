@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public GameObject health_manager;
 
     private Vector3 moveDirection;
-    public float speed = 10f;
+    public float speed = 5f;
     private CharacterController charController;
 
     public Inventory inventory;
