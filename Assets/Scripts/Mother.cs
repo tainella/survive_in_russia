@@ -9,10 +9,6 @@ public class Mother : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            JsonLoad json = new JsonLoad();
-            json.LoadData();
-            json.playerInfo.lifes = 0;
-            json.SaveData();
             SceneManager.LoadScene("Fail");
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using static UnityEditor.FilePathAttribute;
 using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 [RequireComponent(typeof(SphereCollider))]
@@ -12,15 +13,15 @@ public class NPC : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player") {
+        if (other.gameObject.name == "Player") {
             JsonLoad json = new JsonLoad();
             json.LoadData();
             json.playerInfo.x = other.transform.position.x;
             json.playerInfo.y = other.transform.position.y;
             json.playerInfo.z = other.transform.position.z;
-            json.playerInfo.rotateX = other.transform.eulerAngles.x;
-            json.playerInfo.rotateY = other.transform.eulerAngles.y;
-            json.playerInfo.rotateZ = other.transform.eulerAngles.z;
+            json.playerInfo.rotateX = other.transform.rotation.x;
+            json.playerInfo.rotateY = other.transform.rotation.y;
+            json.playerInfo.rotateZ = other.transform.rotation.z;
 
             if (id == 0) //мама
             {
