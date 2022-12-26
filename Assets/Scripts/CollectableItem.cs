@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 using static UnityEngine.GraphicsBuffer;
 using static UnityEngine.UIElements.UxmlAttributeDescription;
 
@@ -17,12 +18,13 @@ public class CollectableItem : MonoBehaviour
     private bool treeHit = false;
     private Inventory inventory;
     private Player player;
+    private Vector3 item_pos;
 
     [SerializeField] public Item item;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.gameObject.name == "Player")
         {
             uiUse.enabled = true;
             treeHit = true;
@@ -42,6 +44,8 @@ public class CollectableItem : MonoBehaviour
         uiUse = Instantiate(prefabUI, FindObjectOfType<Canvas>().transform.Find("Inventory_panel").transform).GetComponent<RawImage>();
         cam = Camera.main;
 
+        item_pos = transform.position;
+        item_pos.y += GetComponent<MeshRenderer>().bounds.size.y + 0.6f;
         //если он уже есть в инвентаре: сразу уничтожить
         JsonLoad json = new JsonLoad();
         json.LoadData();
@@ -66,8 +70,6 @@ public class CollectableItem : MonoBehaviour
 
     void Update()
     {
-        Vector3 item_pos = transform.position;
-        item_pos.y += GetComponent<MeshRenderer>().bounds.size.y + 0.6f;
         uiUse.transform.position = Camera.main.WorldToScreenPoint(item_pos);
         if (treeHit && Input.GetKeyDown(KeyCode.E))
         {

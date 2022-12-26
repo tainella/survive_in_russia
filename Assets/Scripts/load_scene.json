@@ -1,1 +1,1 @@
-{"lifes":3,"x":-107.5999984741211,"y":4.0,"z":77.30000305175781,"rotateX":0.0,"rotateY":90.0,"rotateZ":0.0,"book":false,"boots":false,"present":false,"food":false,"metGopnik":false,"metGranny":false}
+{"lifes":3,"x":-107.5999984741211,"y":4.0,"z":77.30000305175781,"rotateX":0.0,"rotateY":90.0,"rotateZ":0.0,"book":true,"boots":false,"present":false,"food":false,"metGopnik":false,"metGranny":false}
